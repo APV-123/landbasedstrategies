@@ -21,6 +21,7 @@
       color: #fff;
       padding: 4rem 2rem;
       text-align: center;
+      position: relative;
     }
     .logo {
       max-width: 160px;
@@ -133,7 +134,7 @@
       }
     }
     .switch {
-      position: fixed;
+      position: absolute;
       top: 1rem;
       right: 1rem;
       width: 60px;
@@ -146,6 +147,11 @@
       padding: 0 5px;
       box-sizing: border-box;
       z-index: 999;
+    }
+    @media (max-width: 600px) {
+      .switch {
+        right: 1.5rem;
+      }
     }
     .switch svg {
       width: 18px;
