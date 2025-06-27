@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Land-Based Strategies | Alexander Vitenas</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #111;
+      line-height: 1.6;
+    }
+    header {
+      background: #111;
+      color: #fff;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .logo {
+      max-width: 160px; width: 100%; height: auto;
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      font-size: 2.75rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    header a {
+      display: inline-block;
+      margin: 0 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #fff;
+      color: #111;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    header a:hover {
+      background: #e4e4e4;
+    }
+    section {
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #222;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #777;
+      font-size: 0.875rem;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      .logo {
+        max-width: 120px;
+      }
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInUp 1.2s ease-out forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .switch {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      width: 60px;
+      height: 30px;
+      background-color: #ccc;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5px;
+      box-sizing: border-box;
+      z-index: 999;
+    }
+    .switch svg {
+      width: 18px;
+      height: 18px;
+    }
+    .switch input {
+      display: none;
+    }
+    .slider {
+      position: absolute;
+      height: 22px;
+      width: 22px;
+      background: white;
+      border-radius: 50%;
+      top: 4px;
+      left: 4px;
+      transition: transform 0.3s;
+      z-index: 1;
+    }
+    .switch input:checked + .slider {
+      transform: translateX(28px);
+    }
+    .dark {
+      background-color: #002b36;
+      color: #fdf6e3;
+    }
+    .dark header {
+      background: #073642;
+      color: #fdf6e3;
+    }
+    .dark header a {
+      background: #586e75;
+      color: #fdf6e3;
+    }
+    .dark header a:hover {
+      background: #657b83;
+    }
+    .dark section h2 {
+      color: #93a1a1;
+    }
+    .dark footer {
+      color: #839496;
+    }
+  </style>
+</head>
+<body>
+  <label class="switch">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.66-9h1M3.34 12h1m15.36 4.24l.7.7M4.24 4.24l.7.7m0 14.12l-.7.7m14.12-14.12l-.7.7" /></svg>
+    <input type="checkbox" id="modeToggle" onclick="toggleDarkMode()">
+    <span class="slider"></span>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" /></svg>
+  </label>
+  <header>
+    <img src="castle-logo.png" alt="Castle logo centered" class="logo fade-in" />
+    <h1>Land-Based Strategies</h1>
+    <p>Where strategy meets execution.<br />Real estate investor. Deal architect. Builder of Deal Studio.</p>
+    <a href="#track-record">View My Track Record</a>
+    <a href="#deal-studio">Explore Deal Studio</a>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>I started Land-Based Strategies in 2020 with a simple goal: to do real deals and learn by doing. What began as a platform to market land listings quickly became a launchpad for something deeper: a career in building, investing, and executing across the capital stack.</p>
+    <p>Since then, I’ve completed dozens of land transactions—often on short timelines and with strong multiples. Along the way, I’ve evolved into a full-stack operator: sourcing deals, underwriting complex scenarios, building technical tools, and developing long-term relationships with capital partners.</p>
+    <p>Today, I’m focused on higher-leverage acquisitions, strategic JVs, and scaling my platform through software.</p>
+  </section>
+
+  <section id="track-record">
+    <h2>Investment Track Record</h2>
+    <ul>
+      <li>Fast execution (sub-6-month holds)</li>
+      <li>Strong returns (2–4x typical deal-level multiple)</li>
+      <li>Discipline on entry: price, location, and path to liquidity</li>
+    </ul>
+    <p>My fastest deal closed in under 24 hours. My largest to date is the Hunt County assemblage, where I’m repositioning 32 acres for flex industrial development.</p>
+    <p>While the early chapter was hands-on and opportunistic, the next chapter is more strategic: structured capital, deeper diligence, and scalable systems.</p>
+  </section>
+
+  <section id="deal-studio">
+    <h2>Deal Studio</h2>
+    <p><strong>Deal Studio</strong> is the software platform I’ve built to scale my real estate investment workflow. It’s a vertically integrated tool that:</p>
+    <ul>
+      <li>Scrapes and filters land listings daily</li>
+      <li>Enriches data with GIS, parcel, and market layers</li>
+      <li>Tracks leads from interest to acquisition to sale</li>
+      <li>Supports multi-user collaboration and capital reporting</li>
+    </ul>
+    <p>Deal Studio started as an internal tool, but it’s quickly becoming the operating system for a new class of land investors.</p>
+  </section>
+
+  <section id="principles">
+    <h2>Operating Principles</h2>
+    <ul>
+      <li>Show up every day. The edge is in consistency.</li>
+      <li>Think long-term. I care about legacy, not optics.</li>
+      <li>Work from first principles. No playbooks. Just truth and math.</li>
+      <li>Protect relationships. Integrity is the compounder.</li>
+      <li>Respect capital. Mine and others’. Always.</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Let’s Talk</h2>
+    <p>I’m actively building relationships with LPs, co-GPs, and strategic capital partners. If you share my orientation toward real estate, technology, or long-term wealth-building, I’d love to connect.</p>
+    <p>Email: <a href="mailto:alex@landbasedstrategies.com">alex@landbasedstrategies.com</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Alexander Vitenas — Built with intention</p>
+  </footer>
+  <script>
+    window.history.replaceState({}, document.title, window.location.pathname);
+    window.scrollTo(0, 0);
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+</body>
+</html>
