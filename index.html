@@ -105,6 +105,23 @@
       color: #777;
       font-size: 0.875rem;
     }
+    footer a {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 8px;
+    }
+    footer img {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      filter: grayscale(100%) brightness(0) invert(0);
+      transition: filter 0.3s;
+    }
+    @media (prefers-color-scheme: dark) {
+      footer img {
+        filter: grayscale(100%) brightness(3);
+      }
+    }
     ul {
       padding-left: 1.5rem;
     }
@@ -267,9 +284,14 @@
     <p>I’m actively building relationships with LPs, co-GPs, and strategic capital partners. If you share my orientation toward real estate, technology, or long-term wealth-building, I’d love to connect.</p>
     <p>Email: <a href="mailto:alex@landbasedstrategies.com">alex@landbasedstrategies.com</a></p>
   </section>
-  <footer>
-    <p>© 2025 Alexander Vitenas — Built with intention</p>
+    <footer>
+    © 2025 Alexander Vitenas — Built with intention
+    <a href="https://www.linkedin.com/in/alexandervitenas" target="_blank" rel="noopener">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" />
+    </a>
   </footer>
+
+
   <script>
     window.history.replaceState({}, document.title, window.location.pathname);
     window.scrollTo(0, 0);
