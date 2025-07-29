@@ -71,6 +71,19 @@
     .btn:active {
       transform: scale(0.97);
     }
+a.elevated-link {
+  color: inherit; /* Uses surrounding text color */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+a.elevated-link:hover {
+  color: #355E3B; /* Hunter Green */
+  border-bottom: 1px solid #355E3B;
+}
+
     @media (max-width: 600px) {
       .button-group {
         flex-direction: column;
@@ -103,6 +116,33 @@
       background-color: #ddd;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
+.cta-button {
+  display: inline-block;
+  background-color: #355E3B; /* Hunter Green */
+  color: white;
+  font-weight: 600;
+  padding: 0.75em 1.5em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  background-color: #2e5033; /* Darker Hunter on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.cta-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
     section {
       max-width: 800px;
       margin: 4rem auto;
@@ -253,51 +293,59 @@
   </header>
 
   <section id="about">
-    <h2>About</h2>
-    <p>I started Land-Based Strategies in 2020 with a simple goal: to do real deals and learn by doing. What began as a platform to market land listings quickly became a launchpad for something deeper: a career in building, investing, and executing across the capital stack.</p>
-    <p>Since then, I’ve completed dozens of land transactions—often on short timelines and with strong multiples. Along the way, I’ve evolved into a full-stack operator: sourcing deals, underwriting complex scenarios, building technical tools, and developing long-term relationships with capital partners.</p>
-    <p>Today, I’m focused on higher-leverage acquisitions, strategic JVs, and scaling my platform through software.</p>
-  </section>
+  <h2>About</h2>
+  <p>Land-Based Strategies began in 2020 as a hands-on investment platform focused on land deals across Texas. What started as a simple way to source and market listings evolved into a broader mission: to build a scalable, systems-driven investment practice rooted in execution.</p>
+  <p>Since launch, I’ve led dozens of transactions—many under tight timelines, all with clear alignment on value. Along the way, I’ve developed Deal Studio, a proprietary software platform, and built lasting partnerships with operators, brokers, and capital sources.</p>
+  <p>Today, my focus is on institutional-quality acquisitions, strategic joint ventures, and leveraging data and technology to drive repeatable outcomes.</p>
+</section>
+
 
   <section id="track-record">
-    <h2>Investment Track Record</h2>
-    <ul>
-      <li>Fast execution (sub-6-month holds)</li>
-      <li>Strong returns (2–4x typical deal-level multiple)</li>
-      <li>Discipline on entry: price, location, and path to liquidity</li>
-    </ul>
-    <p>My fastest deal closed in under 24 hours. My largest to date is the Hunt County assemblage, where I’m repositioning 32 acres for flex industrial development.</p>
-    <p>While the early chapter was hands-on and opportunistic, the next chapter is more strategic: structured capital, deeper diligence, and scalable systems.</p>
-  </section>
+  <h2>Investment Track Record</h2>
+  <p>I’ve executed on millions of square feet across the Texas Triangle, with land transactions in counties including Bastrop, Brazoria, Harris, Hays, Hunt, Matagorda, Smith, Waller, and others—totaling over 100 acres acquired and sold to date.</p>
+  <p>What began as self-funded, unlevered land deals has matured into a broader platform—leveraging private credit, structuring joint ventures, and expanding through institutional relationships. I’ve also completed residential flips and seller-financed exits where the strategy called for it.</p>
+  <p>My edge lies in solving complexity: resolving heirship, clearing title, and engineering creative capital stacks to unlock value. Today, I’m working with <a href="https://pearlriverco.com/" target="_blank" rel="noopener" class="elevated-link">Pearl River Companies</a> to pursue ground-up and value-add opportunities in industrial, retail, and mixed-use product types across Texas.</p>
+
+</section>
+
+
+
+
 
   <section id="deal-studio">
-    <h2>Deal Studio</h2>
-    <p><strong>Deal Studio</strong> is the software platform I’ve built to scale my real estate investment workflow. It’s a vertically integrated tool that:</p>
-    <ul>
-      <li>Scrapes and filters land listings daily</li>
-      <li>Enriches data with GIS, parcel, and market layers</li>
-      <li>Tracks leads from interest to acquisition to sale</li>
-      <li>Supports multi-user collaboration and capital reporting</li>
-    </ul>
-    <p>Deal Studio started as an internal tool, but it’s quickly becoming the operating system for a new class of land investors.</p>
-  </section>
+  <h2>Deal Studio</h2>
+  <p><strong>Deal Studio</strong> is a proprietary software platform I built to scale and streamline our investment operations. It serves as the backbone of our workflow—integrating data, process, and collaboration into a single, purpose-built system.</p>
+  <ul>
+    <li>Scrapes and filters land listings across key markets</li>
+    <li>Enriches each opportunity with GIS, parcel, and market context</li>
+    <li>Tracks deals from sourcing through disposition</li>
+    <li>Enables team collaboration and investor reporting</li>
+  </ul>
+  <p>Originally developed as an internal tool, Deal Studio is evolving into the operating system for a new generation of land investors—designed to support disciplined growth at scale.</p>
+</section>
+
 
   <section id="principles">
-    <h2>Operating Principles</h2>
-    <ul>
-      <li>Show up every day. The edge is in consistency.</li>
-      <li>Think long-term. I care about legacy, not optics.</li>
-      <li>Work from first principles. No playbooks. Just truth and math.</li>
-      <li>Protect relationships. Integrity is the compounder.</li>
-      <li>Respect capital. Mine and others’. Always.</li>
-    </ul>
-  </section>
+  <h2>Operating Principles</h2>
+  <ul>
+    <li>Operate with discipline. Process, rigor, and repeatability create lasting advantage.</li>
+    <li>Prioritize long-term alignment. Real trust takes time—and outperforms over time.</li>
+    <li>Rely on fundamentals. Sound judgment and clear math beat trends and tactics.</li>
+    <li>Invest in people. Great partnerships drive durable outcomes.</li>
+    <li>Be a good steward. Capital—whether time, money, or trust—should be treated with care.</li>
+  </ul>
+</section>
 
-  <section id="contact">
-    <h2>Let’s Talk</h2>
-    <p>I’m actively building relationships with LPs, co-GPs, and strategic capital partners. If you share my orientation toward real estate, technology, or long-term wealth-building, I’d love to connect.</p>
-    <p>Email: <a href="mailto:alex@landbasedstrategies.com">alex@landbasedstrategies.com</a></p>
-  </section>
+
+<section id="contact">
+  <h2>Let’s Talk</h2>
+  <p>I welcome conversations with strategic partners, capital providers, and landowners exploring joint ventures or development opportunities. If you share a long-term orientation toward real estate, technology, and value creation—we should talk.</p>
+  <p>Email: <a href="mailto:alex@landbasedstrategies.com" class="elevated-link">alex@landbasedstrategies.com</a></p>
+  <a href="mailto:alex@landbasedstrategies.com" class="cta-button">Start the Conversation</a>
+</section>
+
+
+
     <footer>
     © 2025 Alexander Vitenas — Built with intention
     <a href="https://www.linkedin.com/in/alexandervitenas" target="_blank" rel="noopener">
@@ -320,4 +368,3 @@
   </script>
 </body>
 </html>
-
