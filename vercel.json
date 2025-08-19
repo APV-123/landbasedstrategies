@@ -3,11 +3,21 @@
     {
       "source": "/(.*)\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot)",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/blinka",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "landbasedstrategies.com" }],
+      "destination": "https://www.landbasedstrategies.com/:path*",
+      "permanent": true
     }
   ]
 }
