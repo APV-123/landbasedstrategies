@@ -42,46 +42,16 @@
     return '../'.repeat(depth) + tail;
   }
 
-  /* LINK NORMALIZATION */
+/* LINK NORMALIZATION — safe version: never overwrite an existing href */
 document.querySelectorAll('a').forEach(a => {
+  // If the element already has an href, leave it alone.
+  if (a.hasAttribute('href')) return;
+
+  // Only use data-path to *supply* an href when it's missing.
   const dp = a.getAttribute('data-path');
-
-  // Always honor data-path (including empty string)
   if (dp != null) {
-    a.href = buildHref(dp);
-    return;
+    a.setAttribute('href', buildHref(dp));
   }
-
-  let raw = a.getAttribute('href') || '';
-
-  // Special-case root or empty href on file:// (avoid C:/index.html)
-  if (isFile && (raw === '/' || raw === '')) {
-    a.href = buildHref('');
-    return;
-  }
-
-  try {
-    const url = new URL(raw, location.href);
-
-    // Root "/" on file:// → local index
-    if (isFile && url.origin === location.origin && url.pathname === '/') {
-      a.href = buildHref('');
-      return;
-    }
-
-    // Same-origin, folder-ish (no extension) → normalize to section path
-    const sameHost = url.origin === location.origin;
-    const looksFolder =
-      sameHost &&
-      !url.search && !url.hash &&
-      !/\.(html?|pdf|png|jpe?g|gif|svg|webp|ico|css|js|json|txt|xml|map)$/i.test(url.pathname) &&
-      /(^\/?[\w-]+\/?$)|(^\/$)/.test(url.pathname);
-
-    if (looksFolder) {
-      const logical = url.pathname.replace(/^\/+|\/+$/g, ''); // "deal-studio" or ""
-      a.href = buildHref(logical);
-    }
-  } catch { /* ignore */ }
 });
 
 
