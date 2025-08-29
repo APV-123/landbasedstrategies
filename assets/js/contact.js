@@ -2,7 +2,6 @@
   const form = document.getElementById('contactForm');
   if (!form) return;
 
-  // Auto-pick API base for local vs prod
   const API_BASE =
     location.hostname === 'localhost' || location.hostname === '127.0.0.1'
       ? 'http://127.0.0.1:8000'
@@ -19,63 +18,81 @@
     msg.setAttribute('role', 'status');
   }
 
-  // Collect common UTM params if present
   function collectUtm() {
     const p = new URLSearchParams(location.search);
     const utm = {
-      utm_source:  p.get('utm_source')  || undefined,
-      utm_medium:  p.get('utm_medium')  || undefined,
-      utm_campaign:p.get('utm_campaign')|| undefined,
-      utm_term:    p.get('utm_term')    || undefined,
-      utm_content: p.get('utm_content') || undefined,
+      utm_source:   p.get('utm_source')   || undefined,
+      utm_medium:   p.get('utm_medium')   || undefined,
+      utm_campaign: p.get('utm_campaign') || undefined,
+      utm_term:     p.get('utm_term')     || undefined,
+      utm_content:  p.get('utm_content')  || undefined,
       ref: document.referrer || undefined,
       page: location.pathname
     };
-    // remove undefined keys
     return Object.fromEntries(Object.entries(utm).filter(([,v]) => v != null));
   }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
+    // Clear any previous banner
+    if (msg) { msg.style.display = 'none'; msg.textContent = ''; }
+
     // Basic client validation
-    if (!form.email.value || !form.name.value || !form.message.value) {
-      showMessage('Please complete the required fields.', false);
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    if (!name || !email || !message) {
+      showMessage('Please complete your name, email, and a brief message.', false);
+      (!name ? form.name : (!email ? form.email : form.message)).focus();
+      return;
+    }
+    // email format check
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showMessage('Please enter a valid email address.', false);
+      form.email.focus();
       return;
     }
 
-    // Honeypot check
+    // Honeypot
     if (form.homepage && form.homepage.value) {
       showMessage('Submission blocked.', false);
       return;
     }
 
+    // Build payload with field names that match your form/back end
     const payload = {
-      name: form.name.value.trim(),
-      email: form.email.value.trim(),
+      name,
+      email,
       company: (form.company?.value || '').trim() || null,
       role: (form.role?.value || '').trim() || null,
-      topic: form.topic?.value || 'general',
-      budget: (form.budget?.value || '').trim() || null,
-      message: form.message.value.trim(),
-      newsletter: !!form.newsletter?.checked,
+      topic: form.topic?.value || 'General question',
+      target_size: (form.target_size?.value || '').trim() || null,
+      message,
+      opt_in: !!form.opt_in?.checked,
       utm: collectUtm()
     };
 
-    submitBtn.disabled = true;
-    submitBtn.setAttribute('aria-busy', 'true');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.setAttribute('aria-busy', 'true');
+    }
+
+    // Add a timeout so failures don’t hang silently
+    const ctl = new AbortController();
+    const timer = setTimeout(() => ctl.abort('timeout'), 20000);
 
     try {
       const res = await fetch(`${API_BASE}/api/web-leads`, {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(payload),
-        // credentials not needed for public create
+        signal: ctl.signal
       });
 
       if (!res.ok) {
-        // Try to surface FastAPI error detail if present
-        let detail = 'Something went wrong.';
+        let detail = `Request failed (${res.status})`;
         try {
           const data = await res.json();
           detail = data.detail || JSON.stringify(data);
@@ -86,10 +103,14 @@
       form.reset();
       showMessage('Thanks—message received. I’ll get back to you shortly.', true);
     } catch (err) {
-      showMessage(err.message || 'Request failed. Please email alex@landbasedstrategies.com.', false);
+      const reason = (err && err.name === 'AbortError') ? 'Request timed out.' : (err.message || 'Request failed.');
+      showMessage(`${reason} Please email alex@landbasedstrategies.com.`, false);
     } finally {
-      submitBtn.disabled = false;
-      submitBtn.removeAttribute('aria-busy');
+      clearTimeout(timer);
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.removeAttribute('aria-busy');
+      }
     }
   });
 })();

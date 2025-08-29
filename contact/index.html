@@ -46,70 +46,81 @@
 <main>
 <section class="contact-wrap">
     <form id="contactForm" class="contact-card" novalidate>
-    <div class="form-grid">
-      <!-- Name -->
-      <div class="field">
-        <input id="name" name="name" type="text" placeholder=" " autocomplete="name" required />
-        <label for="name">Your name</label>
-      </div>
+  <!-- honeypot for spam (matches JS name: homepage) -->
+  <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+    <label>Leave this field empty
+      <input type="text" name="homepage" autocomplete="off" tabindex="-1">
+    </label>
+  </div>
 
-      <!-- Email -->
-      <div class="field">
-        <input id="email" name="email" type="email" placeholder=" " autocomplete="email" required />
-        <label for="email">Work email</label>
-      </div>
-
-      <!-- Company -->
-      <div class="field">
-        <input id="company" name="company" type="text" placeholder=" " autocomplete="organization" />
-        <label for="company">Company (optional)</label>
-      </div>
-
-      <!-- Role -->
-      <div class="field">
-        <input id="role" name="role" type="text" placeholder=" " />
-        <label for="role">Role (investor, operator, etc.)</label>
-      </div>
-
-      <!-- Topic -->
-      <div class="field">
-        <select id="topic" name="topic">
-          <option value="" disabled selected hidden></option>
-          <option>Partnership / JV</option>
-          <option>Mandate / Buy-side</option>
-          <option>Sell-side opportunity</option>
-          <option>Walkthrough of Deal Studio</option>
-          <option>General question</option>
-        </select>
-        <label for="topic">Topic</label>
-      </div>
-
-      <!-- Target size -->
-      <div class="field">
-        <input id="target" name="target_size" type="text" placeholder=" " />
-        <label for="target">Target size (e.g., $1–5M, $10–25M)</label>
-      </div>
-
-      <!-- Message -->
-      <div class="field row-span">
-        <textarea id="message" name="message" placeholder=" "></textarea>
-        <label for="message">A few lines about the opportunity, timeline, or what you’d like to discuss</label>
-        <div class="hint">Share whatever helps us prepare a useful reply.</div>
-      </div>
-
-      <!-- Opt-in -->
-      <div class="row-span checkbox">
-        <input id="optin" name="opt_in" type="checkbox" value="true" />
-        <label for="optin">Also send me occasional updates</label>
-      </div>
+  <div class="form-grid">
+    <!-- Name -->
+    <div class="field">
+      <input id="name" name="name" type="text" placeholder=" " autocomplete="name" required />
+      <label for="name">Your name</label>
     </div>
 
-    <div class="form-actions">
-      <button class="btn primary" type="submit">Start the conversation</button>
-      <button class="btn secondary" type="reset">Reset</button>
-      <small class="hint">We do our best to respond within 24 hours.</small>
+    <!-- Email -->
+    <div class="field">
+      <input id="email" name="email" type="email" placeholder=" " autocomplete="email" required />
+      <label for="email">Work email</label>
     </div>
-  </form>
+
+    <!-- Company -->
+    <div class="field">
+      <input id="company" name="company" type="text" placeholder=" " autocomplete="organization" />
+      <label for="company">Company (optional)</label>
+    </div>
+
+    <!-- Role -->
+    <div class="field">
+      <input id="role" name="role" type="text" placeholder=" " />
+      <label for="role">Role (investor, operator, etc.)</label>
+    </div>
+
+    <!-- Topic -->
+    <div class="field">
+      <select id="topic" name="topic">
+        <option value="" disabled selected hidden></option>
+        <option>Partnership / JV</option>
+        <option>Mandate / Buy-side</option>
+        <option>Sell-side opportunity</option>
+        <option>Walkthrough of Deal Studio</option>
+        <option>General question</option>
+      </select>
+      <label for="topic">Topic</label>
+    </div>
+
+    <!-- Target size -->
+    <div class="field">
+      <input id="target" name="target_size" type="text" placeholder=" " />
+      <label for="target">Target size (e.g., $1–5M, $10–25M)</label>
+    </div>
+
+    <!-- Message (make it required) -->
+    <div class="field row-span">
+      <textarea id="message" name="message" placeholder=" " required></textarea>
+      <label for="message">A few lines about the opportunity, timeline, or what you’d like to discuss</label>
+      <div class="hint">Share whatever helps us prepare a useful reply.</div>
+    </div>
+
+    <!-- Opt-in -->
+    <div class="row-span checkbox">
+      <input id="optin" name="opt_in" type="checkbox" value="true" />
+      <label for="optin">Also send me occasional updates</label>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button class="btn primary" id="submitBtn" type="submit">Start the conversation</button>
+    <button class="btn secondary" type="reset">Reset</button>
+    <small class="hint">We do our best to respond within 24 hours.</small>
+  </div>
+
+  <!-- Status banner used by JS -->
+  <div id="formMsg" style="display:none;margin-top:.75rem" aria-live="polite"></div>
+</form>
+
 </section>
 
 </main>
