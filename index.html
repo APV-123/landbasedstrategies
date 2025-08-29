@@ -36,260 +36,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- Favicon & Fonts -->
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #111;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    header {
-      background: #111;
-      color: #fff;
-      padding: 4rem 2rem;
-      text-align: center;
-      position: relative;
-    }
-    .logo {
-      max-width: 160px;
-      width: 100%;
-      height: auto;
-      margin-bottom: 2rem;
-    }
-    header h1 {
-      font-size: 2.75rem;
-      margin-bottom: 0.5rem;
-    }
-    header p {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-    }
-    .button-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 1rem;
-    }
-    .btn {
-      display: inline-block;
-      padding: 0.65rem 2rem;
-      font-weight: 600;
-      border-radius: 8px;
-      text-align: center;
-      text-decoration: none;
-      transition: background 0.3s, color 0.3s, transform 0.05s ease-in-out;
-      white-space: nowrap;
-    }
-    .btn:active {
-      transform: scale(0.97);
-    }
-a.elevated-link {
-  color: inherit; /* Uses surrounding text color */
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease, text-decoration 0.2s ease;
-  border-bottom: 1px solid transparent;
-}
-
-a.elevated-link:hover {
-  color: #355E3B; /* Hunter Green */
-  border-bottom: 1px solid #355E3B;
-}
-
-    @media (max-width: 600px) {
-      .button-group {
-        flex-direction: column;
-        max-width: 320px;
-        margin: 0 auto;
-        width: 100%;
-        padding: 0 1rem;
-        gap: 10px;
-      }
-      .btn {
-        border-radius: 999px;
-        width: 100%;
-        padding: 0.65rem 1.5rem;
-        text-align: center;
-      }
-    }
-    .btn.primary {
-      background-color: #fff;
-      color: #111;
-    }
-    .btn.primary:hover {
-      background-color: #e4e4e4;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
-    .btn.secondary {
-      background-color: #f0f0f0;
-      color: #111;
-    }
-    .btn.secondary:hover {
-      background-color: #ddd;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
-.cta-button {
-  display: inline-block;
-  background-color: #355E3B; /* Hunter Green */
-  color: white;
-  font-weight: 600;
-  padding: 0.75em 1.5em;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  text-decoration: none;
-}
-
-.cta-button:hover {
-  background-color: #2e5033; /* Darker Hunter on hover */
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.cta-button:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-    section {
-      max-width: 800px;
-      margin: 4rem auto;
-      padding: 0 2rem;
-    }
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #222;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: #777;
-      font-size: 0.875rem;
-    }
-    footer a {
-      display: inline-block;
-      vertical-align: middle;
-      margin-left: 8px;
-    }
-    footer img {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      filter: grayscale(100%) brightness(0) invert(0);
-      transition: filter 0.3s;
-    }
-    @media (prefers-color-scheme: dark) {
-      footer img {
-        filter: grayscale(100%) brightness(3);
-      }
-    }
-    ul {
-      padding-left: 1.5rem;
-    }
-    ul li {
-      margin-bottom: 0.5rem;
-    }
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      header p {
-        font-size: 1rem;
-      }
-      .logo {
-        max-width: 120px;
-      }
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(-20px);
-      animation: fadeInUp 1.2s ease-out forwards;
-    }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    .switch {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      width: 60px;
-      height: 30px;
-      background-color: #ccc;
-      border-radius: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 5px;
-      box-sizing: border-box;
-      z-index: 999;
-    }
-    @media (max-width: 600px) {
-      .switch {
-        right: 1.5rem;
-      }
-    }
-    .switch svg {
-      width: 18px;
-      height: 18px;
-    }
-    .switch input {
-      display: none;
-    }
-    .slider {
-      position: absolute;
-      height: 22px;
-      width: 22px;
-      background: white;
-      border-radius: 50%;
-      top: 4px;
-      left: 4px;
-      transition: transform 0.3s;
-      z-index: 1;
-    }
-    .switch input:checked + .slider {
-      transform: translateX(28px);
-    }
-    .dark {
-      background-color: #002b36;
-      color: #fdf6e3;
-    }
-    .dark header {
-      background: #073642;
-      color: #fdf6e3;
-    }
-    .dark .btn.primary {
-      background-color: #586e75;
-      color: #fdf6e3;
-    }
-    .dark .btn.primary:hover {
-      background-color: #657b83;
-    }
-    .dark .btn.secondary {
-      background-color: #2e3b3e;
-      color: #fdf6e3;
-    }
-    .dark .btn.secondary:hover {
-      background-color: #3a4a4d;
-    }
-    .dark section h2 {
-      color: #93a1a1;
-    }
-    .dark footer {
-      color: #839496;
-    }
-  </style>
+ <link rel="stylesheet" href="assets/css/site.css"> 
 <link rel="canonical" href="https://www.landbasedstrategies.com/">
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXDT48MLN9"></script>
@@ -299,85 +46,136 @@ a.elevated-link:hover {
   gtag('js', new Date());
   gtag('config', 'G-JXDT48MLN9');
 </script>
+<script>
+(function () {
+  try {
+    var s = localStorage.getItem('lbs-theme');
+    if (s) {
+      document.documentElement.classList.toggle('dark', s === 'dark');
+    } else if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.classList.add('dark');
+    }
+  } catch (e) {}
+})();
+</script>
+<script>
+/* Fix root-slash hrefs when viewing via file:// so clicks don't go to C:\index.html */
+(function () {
+  if (location.protocol !== 'file:') return;
+
+  var SITE = '/landbasedstrategies/'; // your folder name
+  var path = location.pathname.replace(/\\/g,'/').toLowerCase();
+  var at   = path.lastIndexOf(SITE);
+  if (at === -1) return;
+
+  var sub   = path.slice(at + SITE.length);                   // e.g. "deal-studio/index.html"
+  var depth = Math.max(0, sub.split('/').filter(Boolean).length - 1);
+  var prefix = '../'.repeat(depth);
+
+  function toLocal(page){ // "deal-studio/" or "" -> relative file path
+    var clean = String(page).replace(/^\/*|\/*$/g, '');       // "deal-studio" or ""
+    return prefix + (clean ? clean + '/index.html' : 'index.html');
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a').forEach(function (a) {
+      var dp = a.getAttribute('data-path');
+      if (dp != null) { a.href = toLocal(dp); return; }
+
+      var href = a.getAttribute('href') || '';
+      // root "/" or empty
+      if (href === '/' || href === '') { a.href = toLocal(''); return; }
+
+      // same-origin, folder-ish absolute "/deal-studio/" -> local file
+      if (/^\/[\w-]+\/$/.test(href)) { a.href = toLocal(href); }
+    });
+  });
+})();
+</script>
+
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T2KSDCM3"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-  <label class="switch">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.66-9h1M3.34 12h1m15.36 4.24l.7.7M4.24 4.24l.7.7m0 14.12l-.7.7m14.12-14.12l-.7.7" /></svg>
-    <input type="checkbox" id="modeToggle" onclick="toggleDarkMode()">
-    <span class="slider"></span>
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" /></svg>
-  </label>
-  <header>
+<header class="site-header">
+  <div class="inner container">
+    <a class="brand" href="/" data-path="">Land-Based Strategies</a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="site-nav" class="nav">
+      <a href="/" data-path="">Home</a>
+      <a href="/track-record/" data-path="track-record/">Track Record</a>
+      <a href="/deal-studio/" data-path="deal-studio/">Deal Studio</a>
+      <a href="/about/" data-path="about/">About</a>
+      <a href="/contact/" data-path="contact/">Contact</a>
+    </nav>
+
+    <label class="switch" for="modeToggle" title="Toggle dark mode">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m8.66-9h1M3.34 12h1m15.36 4.24l.7.7M4.24 4.24l.7.7m0 14.12l-.7.7m14.12-14.12l-.7.7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <input type="checkbox" id="modeToggle" aria-label="Toggle color theme" />
+      <span class="slider" aria-hidden="true"></span>
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </label>
+  </div>
+</header>
+  <section class="hero hero--band hero--home">
+<div class="container hero__inner">
     <img src="castle-logo.png" alt="Castle logo centered" class="logo fade-in" />
     <h1>Land-Based Strategies</h1>
 <p>
   Investing at the intersection of land, capital, and code.<br />
   Led by Alexander Vitenas. Powered by Deal Studio.
 </p>
+</div>
+</section>
+<section class="sections-nav">
 
-
-    <div class="button-group">
-      <a href="#track-record" class="btn secondary">View My Track Record</a>
-      <a href="#deal-studio" class="btn primary">Explore Deal Studio</a>
+  <a class="panel panel--light" href="/track-record/" data-path="track-record/">
+    <div class="panel__inner">
+      <div>
+        <div class="panel__kicker">Results</div>
+        <h3>Track Record</h3>
+        <p>KPIs, selected deals, and what the numbers say. <span class="arrow">→</span></p>
+      </div>
     </div>
-  </header>
+  </a>
 
-  <section id="about">
-  <h2>About</h2>
-  <p>Land-Based Strategies began in 2020 as a hands-on investment platform focused on land deals across Texas. What started as a simple way to source and market listings evolved into a broader mission: to build a scalable, systems-driven investment practice rooted in execution.</p>
-  <p>Since launch, I’ve led dozens of transactions—many under tight timelines, all with clear alignment on value. Along the way, I’ve developed Deal Studio, a proprietary software platform, and built lasting partnerships with operators, brokers, and capital sources.</p>
-  <p>Today, my focus is on institutional-quality acquisitions, strategic joint ventures, and leveraging data and technology to drive repeatable outcomes.</p>
+  <a class="panel panel--muted" href="/deal-studio/" data-path="deal-studio/">
+    <div class="panel__inner">
+      <div>
+        <div class="panel__kicker">Product</div>
+        <h3>Deal Studio</h3>
+        <p>The software that turns land into repeatable execution. <span class="arrow">→</span></p>
+      </div>
+    </div>
+  </a>
+
+  <a class="panel panel--light" href="/about/" data-path="about/">
+    <div class="panel__inner">
+      <div>
+        <div class="panel__kicker">Principles</div>
+        <h3>About</h3>
+        <p>Context, operating system, and the principles behind Land-Based Strategies. <span class="arrow">→</span></p>
+      </div>
+    </div>
+  </a>
+
+  <a class="panel panel--muted" href="/contact/" data-path="contact/">
+    <div class="panel__inner">
+      <div>
+        <div class="panel__kicker">Start</div>
+        <h3>Contact</h3>
+        <p>Deals, JV ideas, or a walkthrough — let’s talk. <span class="arrow">→</span></p>
+      </div>
+    </div>
+  </a>
+
 </section>
-
-
-  <section id="track-record">
-  <h2>Investment Track Record</h2>
-  <p>I’ve executed on millions of square feet across the Texas Triangle, with land transactions in counties including Bastrop, Brazoria, Harris, Hays, Hunt, Matagorda, Smith, Waller, and others—totaling over 100 acres acquired and sold to date.</p>
-  <p>What began as self-funded, unlevered land deals has matured into a broader platform—leveraging private credit, structuring joint ventures, and expanding through institutional relationships. I’ve also completed residential flips and seller-financed exits where the strategy called for it.</p>
-  <p>My edge lies in solving complexity: resolving heirship, clearing title, and engineering creative capital stacks to unlock value. Today, I’m working with <a href="https://pearlriverco.com/" target="_blank" rel="noopener" class="elevated-link">Pearl River Companies</a> to pursue ground-up and value-add opportunities in industrial, retail, and mixed-use product types across Texas.</p>
-
-</section>
-
-
-
-
-
-  <section id="deal-studio">
-  <h2>Deal Studio</h2>
-  <p><strong>Deal Studio</strong> is a proprietary software platform I built to scale and streamline our investment operations. It serves as the backbone of our workflow—integrating data, process, and collaboration into a single, purpose-built system.</p>
-  <ul>
-    <li>Scrapes and filters land listings across key markets</li>
-    <li>Enriches each opportunity with GIS, parcel, and market context</li>
-    <li>Tracks deals from sourcing through disposition</li>
-    <li>Enables team collaboration and investor reporting</li>
-  </ul>
-  <p>Originally developed as an internal tool, Deal Studio is evolving into the operating system for a new generation of land investors—designed to support disciplined growth at scale.</p>
-</section>
-
-
-  <section id="principles">
-  <h2>Operating Principles</h2>
-  <ul>
-    <li>Operate with discipline. Process, rigor, and repeatability create lasting advantage.</li>
-    <li>Prioritize long-term alignment. Real trust takes time—and outperforms over time.</li>
-    <li>Rely on fundamentals. Sound judgment and clear math beat trends and tactics.</li>
-    <li>Invest in people. Great partnerships drive durable outcomes.</li>
-    <li>Be a good steward. Capital—whether time, money, or trust—should be treated with care.</li>
-  </ul>
-</section>
-
-
-<section id="contact">
-  <h2>Let’s Talk</h2>
-  <p>I welcome conversations with strategic partners, capital providers, and landowners exploring joint ventures or development opportunities. If you share a long-term orientation toward real estate, technology, and value creation—we should talk.</p>
-  <p>Email: <a href="mailto:alex@landbasedstrategies.com" class="elevated-link">alex@landbasedstrategies.com</a></p>
-  <a href="mailto:alex@landbasedstrategies.com" class="cta-button">Start the Conversation</a>
-</section>
-
 
 
     <footer>
@@ -392,13 +190,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="X (Twitter)" />
     </a>
   </footer>
-
-  <script>
-    window.history.replaceState({}, document.title, window.location.pathname);
-    window.scrollTo(0, 0);
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark');
-    }
-  </script>
+<script defer src="assets/js/site.js"></script>
 </body>
 </html>
