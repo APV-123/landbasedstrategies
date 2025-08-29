@@ -1,23 +1,38 @@
+/* assets/js/contact.js */
 (() => {
   const form = document.getElementById('contactForm');
   if (!form) return;
 
+  // Local dev → FastAPI on localhost; Prod → same-origin (proxied by Vercel rewrites)
   const API_BASE =
     location.hostname === 'localhost' || location.hostname === '127.0.0.1'
       ? 'http://127.0.0.1:8000'
-      : 'https://api.landbasedstrategies.com';
+      : ''; // production: call /api/... on this domain
 
-  const msg = document.getElementById('formMsg');
-  const submitBtn = document.getElementById('submitBtn');
+  // Message area: use existing #formMsg or create one
+  let msg = document.getElementById('formMsg');
+  if (!msg) {
+    msg = document.createElement('div');
+    msg.id = 'formMsg';
+    msg.className = 'hint';
+    msg.style.display = 'none';
+    msg.style.marginTop = '.5rem';
+    form.appendChild(msg);
+  }
+
+  // Submit button: use #submitBtn if present, otherwise the form's submit button
+  const submitBtn =
+    document.getElementById('submitBtn') ||
+    form.querySelector('button[type="submit"]');
 
   function showMessage(text, ok = true) {
-    if (!msg) return;
     msg.textContent = text;
     msg.style.display = 'block';
     msg.style.color = ok ? 'var(--brand)' : '#b00020';
     msg.setAttribute('role', 'status');
   }
 
+  // Collect common UTM params if present
   function collectUtm() {
     const p = new URLSearchParams(location.search);
     const utm = {
@@ -29,14 +44,15 @@
       ref: document.referrer || undefined,
       page: location.pathname
     };
-    return Object.fromEntries(Object.entries(utm).filter(([,v]) => v != null));
+    return Object.fromEntries(Object.entries(utm).filter(([, v]) => v != null));
   }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     // Clear any previous banner
-    if (msg) { msg.style.display = 'none'; msg.textContent = ''; }
+    msg.style.display = 'none';
+    msg.textContent = '';
 
     // Basic client validation
     const name = form.name.value.trim();
@@ -61,7 +77,7 @@
       return;
     }
 
-    // Build payload with field names that match your form/back end
+    // Build payload → field names match your HTML
     const payload = {
       name,
       email,
@@ -79,7 +95,7 @@
       submitBtn.setAttribute('aria-busy', 'true');
     }
 
-    // Add a timeout so failures don’t hang silently
+    // Abort after 20s so it never hangs silently
     const ctl = new AbortController();
     const timer = setTimeout(() => ctl.abort('timeout'), 20000);
 

@@ -7,6 +7,16 @@
       ]
     }
   ],
+  "rewrites": [
+    {
+      "source": "/api/web-leads",
+      "destination": "https://dealstudio-backend.fly.dev/api/web-leads"
+    },
+    {
+      "source": "/api/health",
+      "destination": "https://dealstudio-backend.fly.dev/health"
+    }
+  ],
   "redirects": [
     {
       "source": "/blinka",
