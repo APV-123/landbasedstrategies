@@ -8,15 +8,12 @@
     }
   ],
   "rewrites": [
-    {
-      "source": "/api/web-leads",
-      "destination": "https://dealstudio-backend.fly.dev/api/web-leads"
-    },
-    {
-      "source": "/api/health",
-      "destination": "https://dealstudio-backend.fly.dev/health"
-    }
-  ],
+  {
+    "source": "/api/:path*",
+    "destination": "https://dealstudio-backend.fly.dev/:path*"
+  }
+]
+,
   "redirects": [
     {
       "source": "/blinka",
