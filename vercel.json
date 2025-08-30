@@ -20,9 +20,9 @@
       "permanent": true
     },
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [{ "type": "host", "value": "landbasedstrategies.com" }],
-      "destination": "https://www.landbasedstrategies.com/:path*",
+      "destination": "https://www.landbasedstrategies.com/$1",
       "permanent": true
     }
   ]
