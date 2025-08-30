@@ -1,4 +1,10 @@
 {
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://dealstudio-backend.fly.dev/:path*"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot)",
@@ -7,13 +13,6 @@
       ]
     }
   ],
-  "rewrites": [
-  {
-    "source": "/api/:path*",
-    "destination": "https://dealstudio-backend.fly.dev/:path*"
-  }
-]
-,
   "redirects": [
     {
       "source": "/blinka",
