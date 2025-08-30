@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://dealstudio-backend.fly.dev/:path*"
+      "destination": "https://dealstudio-backend.fly.dev/api/:path*"
     }
   ],
   "headers": [
@@ -14,15 +14,11 @@
     }
   ],
   "redirects": [
+    { "source": "/blinka", "destination": "/", "permanent": true },
     {
-      "source": "/blinka",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/(.*)",
+      "source": "/:path*",
       "has": [{ "type": "host", "value": "landbasedstrategies.com" }],
-      "destination": "https://www.landbasedstrategies.com/$1",
+      "destination": "https://www.landbasedstrategies.com/:path*",
       "permanent": true
     }
   ]
