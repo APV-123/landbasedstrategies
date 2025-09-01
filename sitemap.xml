@@ -1,34 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Core Pages -->
   <url>
     <loc>https://www.landbasedstrategies.com/</loc>
-    <lastmod>2025-08-19</lastmod>
+    <lastmod>2025-09-01</lastmod>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://www.landbasedstrategies.com/track-record/</loc>
-    <lastmod>2025-08-28</lastmod>
+    <lastmod>2025-09-01</lastmod>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.landbasedstrategies.com/deal-studio/</loc>
-    <lastmod>2025-08-28</lastmod>
+    <lastmod>2025-09-01</lastmod>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.landbasedstrategies.com/about/</loc>
-    <lastmod>2025-08-28</lastmod>
+    <lastmod>2025-09-01</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.landbasedstrategies.com/contact/</loc>
-    <lastmod>2025-08-28</lastmod>
+    <lastmod>2025-09-01</lastmod>
     <priority>0.7</priority>
+  </url>
+
+  <!-- Strategies Hub -->
+  <url>
+    <loc>https://www.landbasedstrategies.com/strategies/</loc>
+    <lastmod>2025-09-01</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Retail Hub + Pillars -->
+  <url>
+    <loc>https://www.landbasedstrategies.com/strategies/retail/</loc>
+    <lastmod>2025-09-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.landbasedstrategies.com/strategies/retail/value-add/</loc>
+    <lastmod>2025-09-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.landbasedstrategies.com/strategies/retail/ground-up/</loc>
+    <lastmod>2025-09-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Industrial Hub + Pillars -->
+  <url>
+    <loc>https://www.landbasedstrategies.com/strategies/industrial/</loc>
+    <lastmod>2025-09-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.landbasedstrategies.com/strategies/industrial/value-add/</loc>
+    <lastmod>2025-09-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.landbasedstrategies.com/strategies/industrial/ground-up/</loc>
+    <lastmod>2025-09-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.landbasedstrategies.com/strategies/industrial/ios/</loc>
+    <lastmod>2025-09-01</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.landbasedstrategies.com/strategies/industrial/self-storage/</loc>
+    <lastmod>2025-09-01</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Special Situations -->
+  <url>
+    <loc>https://www.landbasedstrategies.com/strategies/distressed-assets/</loc>
+    <lastmod>2025-09-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.landbasedstrategies.com/strategies/subdivides/</loc>
+    <lastmod>2025-09-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.landbasedstrategies.com/strategies/commercial-repositioning/</loc>
+    <lastmod>2025-09-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.landbasedstrategies.com/strategies/assemblage/</loc>
+    <lastmod>2025-09-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.landbasedstrategies.com/strategies/mixed-use/</loc>
+    <lastmod>2025-09-01</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.landbasedstrategies.com/strategies/probate-heirship/</loc>
+    <lastmod>2025-09-01</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.landbasedstrategies.com/strategies/bankruptcy/</loc>
+    <lastmod>2025-09-01</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Insights (Blog) -->
+  <url>
+    <loc>https://www.landbasedstrategies.com/insights/</loc>
+    <lastmod>2025-09-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.landbasedstrategies.com/insights/value-add-retail/</loc>
+    <lastmod>2025-09-01</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.landbasedstrategies.com/insights/industrial-infrastructure/</loc>
+    <lastmod>2025-09-01</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.landbasedstrategies.com/insights/distressed-assets/</loc>
+    <lastmod>2025-09-01</lastmod>
+    <priority>0.6</priority>
   </url>
 
 </urlset>

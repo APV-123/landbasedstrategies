@@ -62,34 +62,153 @@ html.dark .lead{ color:#dfe6e8 }
 }
 .site-header .brand { font-weight:700; color:#fff }
 
-.nav{ display:flex; gap:18px; align-items:center; margin-left:auto }
-.nav a{
-  color:#ddd; padding:8px 10px; border-radius:8px;
-  transition:background .2s,color .2s;
-}
-.nav a:hover{ color:#fff; background:rgba(255,255,255,.08) }
-.nav a[aria-current="page"]{ color:#fff; background:rgba(255,255,255,.12) }
-
-.nav-toggle{ display:none; background:none; border:0; cursor:pointer }
-.nav-toggle span{ display:block; width:22px; height:2px; background:#fff; margin:5px 0 }
-
-/* Mobile nav */
-@media (max-width:800px){
-  .nav{
-    position:fixed; inset:56px 0 auto 0; background:#111;
-    display:grid; gap:6px; padding:10px 16px;
-    transform:translateY(-120%); transition:transform .25s var(--ease);
-  }
-  .nav.open{ transform:translateY(0) }
-  .nav a{ padding:12px; font-size:1.05rem }
-  .nav-toggle{ display:block }
-}
-
 /* Dark header chrome */
 html.dark .site-header{ background:#073642; color:#fdf6e3 }
 html.dark .nav a{ color:#cfe3e4 }
 html.dark .nav a:hover{ color:#fff; background:rgba(255,255,255,.10) }
 html.dark .nav a[aria-current="page"]{ color:#fff; background:rgba(255,255,255,.14) }
+
+/* ---------- Navigation ---------- */
+
+/* Top-level nav layout */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;             /* More breathing room between items */
+  margin-left: auto;
+  font-size: 0.95rem;
+}
+
+/* Each nav item behaves inline */
+.nav-item {
+  position: relative;
+  display: inline-block;
+}
+
+/* Top-level links */
+.nav-item > a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ddd;
+  padding: 10px 14px;
+  border-radius: 6px;
+  transition: background .25s var(--ease), color .25s var(--ease);
+}
+.nav-item > a:hover,
+.nav-item > a[aria-current="page"] {
+  color: #fff;
+  background: rgba(255,255,255,.12);
+}
+
+/* Add caret for dropdown items */
+.nav-item.has-dropdown > a::after {
+  content: "▾";
+  font-size: 0.75em;
+  transition: transform .25s ease;
+}
+.nav-item.has-dropdown:hover > a::after {
+  transform: rotate(180deg);
+}
+
+/* Dropdown container */
+.nav-item .dropdown {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  min-width: 220px;
+  background: #111;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.2);
+  padding: 8px 0;
+  z-index: 100;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+/* Show dropdown smoothly */
+@media (hover: hover) and (min-width:801px) {
+  .nav-item:hover .dropdown {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dropdown links */
+.nav-item .dropdown a {
+  display: block;
+  padding: 10px 16px;
+  color: #ddd;
+  white-space: nowrap;
+  transition: background .2s, color .2s;
+}
+.nav-item .dropdown a:hover {
+  background: rgba(255,255,255,.08);
+  color: #fff;
+}
+
+/* Optional: subtle dividers between dropdown items */
+.nav-item .dropdown a + a {
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+/* Mobile: stack items */
+@media (max-width:800px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 16px;
+  }
+  .nav-item {
+    width: 100%;
+  }
+  .nav-item .dropdown {
+    position: static;
+    display: block;
+    opacity: 1;
+    transform: none;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+  }
+  .nav-item .dropdown a {
+    padding: 12px;
+    font-size: 1.05rem;
+    border-top: none;
+  }
+}
+/* Hide nav toggle on desktop */
+.nav-toggle {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .nav-toggle {
+    display: block;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #fff;
+    margin: 5px 0;
+  }
+}
+
+/* Dark mode */
+html.dark .nav-item .dropdown { background: #073642; }
+html.dark .nav-item .dropdown a { color: #cfe3e4; }
+html.dark .nav-item .dropdown a:hover { background: rgba(255,255,255,.10); }
+html.dark .nav-item .dropdown a + a { border-color: rgba(255,255,255,.1); }
+
+
 
 /* ---------- Theme switch (pill) ---------- */
 .switch{
