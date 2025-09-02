@@ -15,10 +15,16 @@
     }
   ],
   "redirects": [
-    { "source": "/blinka", "destination": "/", "permanent": true },
+    {
+      "source": "/blinka",
+      "destination": "/",
+      "permanent": true
+    },
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "landbasedstrategies.com" }],
+      "has": [
+        { "type": "host", "value": "landbasedstrategies.com" }
+      ],
       "destination": "https://www.landbasedstrategies.com/:path*",
       "permanent": true
     }
