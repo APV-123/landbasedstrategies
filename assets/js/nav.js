@@ -27,6 +27,34 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       });
+
+      // ===== Mobile Nav Behavior =====
+      const nav = navContainer.querySelector(".nav");
+      const navToggle = navContainer.querySelector(".nav-toggle");
+      const backdrop = document.querySelector(".nav-backdrop"); // lives outside navContainer
+
+      if (nav && navToggle && backdrop) {
+        // Toggle drawer open/close
+        navToggle.addEventListener("click", () => {
+          nav.classList.toggle("open");
+          backdrop.classList.toggle("open");
+        });
+
+        // Close when clicking backdrop
+        backdrop.addEventListener("click", () => {
+          nav.classList.remove("open");
+          backdrop.classList.remove("open");
+        });
+      }
+
+      // Submenu toggles (Strategies, Insights)
+      navContainer.querySelectorAll(".nav-item.has-dropdown > a").forEach(link => {
+        link.addEventListener("click", e => {
+          // Prevent nav jump
+          e.preventDefault();
+          link.parentElement.classList.toggle("open");
+        });
+      });
     })
     .catch(err => console.error("Error loading nav:", err));
 });

@@ -1,3 +1,11 @@
+<!-- Hamburger (mobile only) -->
+<button class="nav-toggle" aria-label="Toggle menu">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<!-- Navigation links -->
 <nav id="site-nav" class="nav">
   <a href="/track-record/" data-path="track-record/">Track Record</a>
   <a href="/deal-studio/" data-path="deal-studio/">Deal Studio</a>
@@ -7,25 +15,20 @@
     <div class="dropdown">
       <a href="/strategies/retail/">Retail</a>
       <a href="/strategies/industrial/">Industrial</a>
-      <a href="/strategies/distressed-assets/">Distressed Assets</a>
-      <a href="/strategies/subdivides/">Rural & Suburban Subdivides</a>
-      <a href="/strategies/commercial-repositioning/">Commercial Repositioning</a>
-      <a href="/strategies/assemblage/">Assemblage</a>
-      <a href="/strategies/mixed-use/">Mixed Use</a>
-      <a href="/strategies/probate-heirship/">Probate & Heirship</a>
-      <a href="/strategies/bankruptcy/">Bankruptcy</a>
+      <a href="/strategies/distressed-assets/" class="niche">Distressed Assets</a>
+      <a href="/strategies/subdivides/" class="niche">Rural & Suburban Subdivides</a>
+      <a href="/strategies/commercial-repositioning/" class="niche">Commercial Repositioning</a>
+      <a href="/strategies/assemblage/" class="niche">Assemblage</a>
+      <a href="/strategies/mixed-use/" class="niche">Mixed Use</a>
+      <a href="/strategies/probate-heirship/" class="niche">Probate & Heirship</a>
+      <a href="/strategies/bankruptcy/" class="niche">Bankruptcy</a>
     </div>
   </div>
 
-  <div class="nav-item has-dropdown">
-    <a href="/insights/" data-path="insights/">Insights</a>
-    <div class="dropdown">
-      <a href="/insights/tenanting-mistakes.html">Tenanting Mistakes</a>
-      <a href="/insights/entitlement-checklist.html">Entitlement Checklist</a>
-      <a href="/insights/case-study-houston.html">Houston Case Study</a>
-    </div>
-  </div>
-
+  <a href="/insights/" data-path="insights/">Insights</a>
   <a href="/about/" data-path="about/">About</a>
   <a href="/contact/" data-path="contact/">Contact</a>
 </nav>
+
+<!-- Backdrop for mobile drawer -->
+<div class="nav-backdrop"></div>
