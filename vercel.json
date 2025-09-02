@@ -55,7 +55,7 @@
       "permanent": true
     },
 
-    // Force www as primary domain (keep this last)
+    // Force www as primary domain (keep last so legacy rules apply first)
     {
       "source": "/:path*",
       "has": [
