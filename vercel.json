@@ -21,16 +21,6 @@
       "permanent": true
     },
 
-    // Force www as primary domain
-    {
-      "source": "/:path*",
-      "has": [
-        { "type": "host", "value": "landbasedstrategies.com" }
-      ],
-      "destination": "https://www.landbasedstrategies.com/:path*",
-      "permanent": true
-    },
-
     // Blog hub
     {
       "source": "/blog",
@@ -94,6 +84,16 @@
     {
       "source": "/lease-arbitrage-calc",
       "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+
+    // Force www as primary domain (moved to bottom so legacy redirects apply first)
+    {
+      "source": "/:path*",
+      "has": [
+        { "type": "host", "value": "landbasedstrategies.com" }
+      ],
+      "destination": "https://www.landbasedstrategies.com/:path*",
       "permanent": true
     }
   ]
