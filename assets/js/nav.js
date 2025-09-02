@@ -48,12 +48,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       // ===== Submenu toggles (caret buttons only) =====
-      navContainer.querySelectorAll(".submenu-toggle").forEach(btn => {
-        btn.addEventListener("click", e => {
-          e.preventDefault();
-          btn.parentElement.classList.toggle("open");
-        });
-      });
+navContainer.querySelectorAll(".caret-toggle").forEach(btn => {
+  btn.addEventListener("click", e => {
+    e.preventDefault();
+    btn.closest(".nav-item").classList.toggle("open");
+  });
+});
+
     })
     .catch(err => console.error("Error loading nav:", err));
 });
