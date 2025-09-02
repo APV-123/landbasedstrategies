@@ -79,10 +79,6 @@ html.dark .nav a[aria-current="page"]{ color:#fff; background:rgba(255,255,255,.
 .nav-item > a[aria-current="page"]{
   color:#fff; background:rgba(255,255,255,.12);
 }
-.nav-item.has-dropdown > a::after{
-  content:"▾"; font-size:0.75em; transition:transform .25s ease;
-}
-.nav-item.has-dropdown:hover > a::after{ transform:rotate(180deg); }
 .nav-item .dropdown{
   display:none; position:absolute; top:110%; left:0;
   min-width:220px;
@@ -164,28 +160,36 @@ html.dark .nav-item .dropdown a{ color:#cfe3e4; }
 html.dark .nav-item .dropdown a:hover{ background:rgba(255,255,255,.10); }
 html.dark .nav-item .dropdown a + a{ border-color:rgba(255,255,255,.1); }
 
-/* ===== Submenu toggle caret ===== */
-.submenu-toggle {
-  background: none;
-  border: 0;
-  cursor: pointer;
-  color: #ddd;
-  margin-left: 6px;
-  padding: 0;
-}
-.submenu-toggle::after {
-  content: "▾";
-  font-size: 0.75em;
-  transition: transform 0.25s ease;
-}
-.nav-item.open > .submenu-toggle::after {
-  transform: rotate(180deg);
+/* ===== Submenu toggle caret (mobile only) ===== */
+@media (max-width: 800px) {
+  .submenu-toggle {
+    display: inline-block;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: #ddd;
+    margin-left: 6px;
+    padding: 0;
+  }
+  .submenu-toggle::after {
+    content: "▾";
+    font-size: 0.75em;
+    transition: transform 0.25s ease;
+  }
+  .nav-item.open > .submenu-toggle::after {
+    transform: rotate(180deg);
+  }
+  html.dark .submenu-toggle {
+    color: #cfe3e4;
+  }
 }
 
-/* Dark mode caret */
-html.dark .submenu-toggle {
-  color: #cfe3e4;
+@media (min-width: 801px) {
+  .submenu-toggle {
+    display: none; /* hide caret on desktop */
+  }
 }
+
 
 
 /* ---------- Theme switch (pill) ---------- */
