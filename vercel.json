@@ -20,12 +20,80 @@
       "destination": "/",
       "permanent": true
     },
+
+    // Force www as primary domain
     {
       "source": "/:path*",
       "has": [
         { "type": "host", "value": "landbasedstrategies.com" }
       ],
       "destination": "https://www.landbasedstrategies.com/:path*",
+      "permanent": true
+    },
+
+    // Blog hub
+    {
+      "source": "/blog",
+      "destination": "https://www.landbasedstrategies.com/insights/",
+      "permanent": true
+    },
+    {
+      "source": "/blog?blog=y",
+      "destination": "https://www.landbasedstrategies.com/insights/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/f/:path*",
+      "destination": "https://www.landbasedstrategies.com/insights/",
+      "permanent": true
+    },
+
+    // Old property detail pages → Track Record
+    {
+      "source": "/398-swallow-st",
+      "destination": "https://www.landbasedstrategies.com/track-record/",
+      "permanent": true
+    },
+    {
+      "source": "/10506-pavonia-dr",
+      "destination": "https://www.landbasedstrategies.com/track-record/",
+      "permanent": true
+    },
+    {
+      "source": "/10506-pavonia-dr-1",
+      "destination": "https://www.landbasedstrategies.com/track-record/",
+      "permanent": true
+    },
+    {
+      "source": "/307-lakeview-dr",
+      "destination": "https://www.landbasedstrategies.com/track-record/",
+      "permanent": true
+    },
+    {
+      "source": "/0-kaupa-ct",
+      "destination": "https://www.landbasedstrategies.com/track-record/",
+      "permanent": true
+    },
+    {
+      "source": "/0-johnson-dr",
+      "destination": "https://www.landbasedstrategies.com/track-record/",
+      "permanent": true
+    },
+    {
+      "source": "/1094-lakeside",
+      "destination": "https://www.landbasedstrategies.com/track-record/",
+      "permanent": true
+    },
+    {
+      "source": "/sold",
+      "destination": "https://www.landbasedstrategies.com/track-record/",
+      "permanent": true
+    },
+
+    // Retired tool → Strategies hub
+    {
+      "source": "/lease-arbitrage-calc",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
       "permanent": true
     }
   ]
