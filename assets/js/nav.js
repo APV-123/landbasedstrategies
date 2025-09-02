@@ -47,12 +47,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
 
-      // Submenu toggles (Strategies, Insights)
-      navContainer.querySelectorAll(".nav-item.has-dropdown > a").forEach(link => {
-        link.addEventListener("click", e => {
-          // Prevent nav jump
+      // ===== Submenu toggles (caret buttons only) =====
+      navContainer.querySelectorAll(".submenu-toggle").forEach(btn => {
+        btn.addEventListener("click", e => {
           e.preventDefault();
-          link.parentElement.classList.toggle("open");
+          btn.parentElement.classList.toggle("open");
         });
       });
     })
