@@ -20,8 +20,6 @@
       "destination": "/",
       "permanent": true
     },
-
-    // Blog hub redirects
     {
       "source": "/blog",
       "destination": "https://www.landbasedstrategies.com/insights/",
@@ -41,21 +39,16 @@
       "permanent": true
     },
 
-    // Old property detail pages → Track Record (pattern-based)
     {
       "source": "/:slug(398-swallow-st|10506-pavonia-dr|10506-pavonia-dr-1|307-lakeview-dr|0-kaupa-ct|0-johnson-dr|1094-lakeside|sold)",
       "destination": "https://www.landbasedstrategies.com/track-record/",
       "permanent": true
     },
-
-    // Retired tool → Strategies hub
     {
       "source": "/lease-arbitrage-calc",
       "destination": "https://www.landbasedstrategies.com/strategies/",
       "permanent": true
     },
-
-    // Force www as primary domain (catch-all, keep last)
     {
       "source": "/:path*",
       "has": [
