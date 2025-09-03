@@ -837,3 +837,90 @@ html.dark .badge{ background:#0b1a1d; color:#fdf6e3; border-color:rgba(255,255,2
 }
 html.dark .kpi-chip{ background:#0f1f22; border-color:rgba(255,255,255,.10); box-shadow:none }
 
+/* === Carousel Component === */
+.carousel {
+  position: relative;
+  max-width: 800px;      /* adjust for your layout */
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 8px;    /* optional: rounded corners */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.carousel-inner {
+  display: flex;
+}
+
+.carousel-item {
+  min-width: 100%;
+  display: none;
+  position: relative;
+}
+
+.carousel-item.active {
+  display: block;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Caption overlay */
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Controls (prev/next arrows) */
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  z-index: 2;
+}
+
+.carousel-control:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+.carousel-control.prev { left: 10px; }
+.carousel-control.next { right: 10px; }
+
+/* Value section styling */
+.value {
+  background: #f9f9f9;   /* soft gray background */
+  padding: 3rem 0;
+}
+
+.value h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.value ul {
+  margin: 1.5rem 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.value li {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
