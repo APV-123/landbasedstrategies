@@ -680,6 +680,11 @@ html.dark .step__num{ background: rgba(255,255,255,.06); color:#cfe0e4; }
   line-height: 1.55;
 }
 
+.leader-info .founder-link {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 .leader-link {
   display: inline-block;
   margin-top: 8px;
