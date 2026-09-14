@@ -1,101 +1,30 @@
 (() => {
   const form = document.getElementById('contactForm');
   if (!form) return;
-
-  // Use relative path in production; local hits FastAPI directly
-  const API_BASE =
-    location.hostname === 'localhost' || location.hostname === '127.0.0.1'
-      ? 'http://127.0.0.1:8000'
-      : '';
-
+  // Keep the deployed API rewrite and the existing local FastAPI target.
+  const API_BASE = ['localhost', '127.0.0.1'].includes(location.hostname) ? 'http://127.0.0.1:8000' : '';
   const msg = document.getElementById('formMsg');
-  const submitBtn = document.getElementById('submitBtn');
-
-  function showMessage(text, ok = true) {
-    if (!msg) return;
-    msg.textContent = text;
-    msg.style.display = 'block';
-    msg.style.color = ok ? 'var(--brand)' : '#b00020';
-    msg.setAttribute('role', 'status');
-  }
-
-  // Push a GTM event (safe for PII)
-  function pushDL(event, extra = {}) {
-    if (!window.dataLayer) return;
-    window.dataLayer.push({
-      event,
-      form_id: 'contactForm',
-      form_name: 'Contact Page',
-      form_location: window.location.pathname,
-      ...extra
-    });
-  }
-
-  form.addEventListener('submit', async (e) => {
+  const button = document.getElementById('submitBtn');
+  let pending = false;
+  const show = (text, ok) => { msg.textContent = text; msg.hidden = false; msg.className = ok ? 'form-success' : 'form-error'; msg.focus(); };
+  const event = (name, extra) => { if (window.dataLayer) window.dataLayer.push({event:name,form_id:'contactForm',form_name:'Contact Page',form_location:location.pathname,...extra}); };
+  form.addEventListener('submit', async e => {
     e.preventDefault();
-
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    const message = form.message.value.trim();
-
-    if (!name || !email || !message) {
-      showMessage('Please complete your name, email, and a brief message.', false);
-      return;
-    }
-
-    // Payload sent to backend (PII ok here)
-    const payload = {
-      name,
-      email,
-      company: (form.company?.value || '').trim() || null,
-      role: (form.role?.value || '').trim() || null,
-      topic: form.topic?.value || 'General question',
-      target_size: (form.target_size?.value || '').trim() || null,
-      message,
-      opt_in: !!form.opt_in?.checked
-    };
-
-    // Analytics (attempt) — do NOT include name/email/message
-    pushDL('contact_form_attempt', {
-      topic: payload.topic,
-      target_size: payload.target_size || '',
-      opt_in: payload.opt_in ? 'true' : 'false'
-    });
-
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.setAttribute('aria-busy', 'true');
-    }
-
+    if (pending) return;
+    const value = name => (form.elements.namedItem(name)?.value || '').trim();
+    if (value('homepage')) return;
+    if (!value('name') || !value('email') || !value('message') || !form.reportValidity()) { show('Please complete your name, email, and a brief message.', false); return; }
+    // Preserve established backend keys and topic values; new display labels remain in the message context.
+    const topic = form.elements.namedItem('topic');
+    const payload = {name:value('name'),email:value('email'),company:value('company') || null,role:null,topic:topic.value || 'General question',target_size:null,message:'Inquiry: ' + topic.selectedOptions[0].textContent + '\n\n' + value('message'),opt_in:false};
+    pending = true; button.disabled = true; button.setAttribute('aria-busy','true'); msg.hidden = true;
+    event('contact_form_attempt',{topic:payload.topic,target_size:'',opt_in:'false'});
     try {
-      const res = await fetch(`${API_BASE}/api/web-leads`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-
-      if (!res.ok) {
-        // Surface backend error in GA (status only)
-        pushDL('contact_form_error', { http_status: String(res.status) });
-        throw new Error(`Request failed (${res.status})`);
-      }
-
-      form.reset();
-      showMessage('Thanks—message received. I’ll get back to you shortly.', true);
-
-      // Analytics (success)
-      pushDL('contact_form_submit', {
-        topic: payload.topic,
-        target_size: payload.target_size || '',
-        opt_in: payload.opt_in ? 'true' : 'false'
-      });
-    } catch (err) {
-      showMessage(err.message || 'Request failed. Please email alex@landbasedstrategies.com.', false);
-    } finally {
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.removeAttribute('aria-busy');
-      }
-    }
+      const response = await fetch(API_BASE + '/api/web-leads', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      if (!response.ok) { event('contact_form_error',{http_status:String(response.status)}); throw new Error('Request failed'); }
+      form.reset(); show('Thank you. Your inquiry has been received.', true);
+      event('contact_form_submit',{topic:payload.topic,target_size:'',opt_in:'false'});
+    } catch { show('Your inquiry could not be sent. Please try again.', false); }
+    finally { pending = false; button.disabled = false; button.removeAttribute('aria-busy'); }
   });
 })();

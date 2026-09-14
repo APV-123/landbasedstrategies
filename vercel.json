@@ -1,47 +1,345 @@
 {
-  "trailingSlash": true,
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
       "source": "/api/:path*",
+      "destination": "https://dealstudio-backend.fly.dev/api/:path*"
+    },
+    {
+      "source": "/api/:path*/",
       "destination": "https://dealstudio-backend.fly.dev/api/:path*"
     }
   ],
   "headers": [
     {
-      "source": "/(.*)\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot)",
+      "source": "/assets/:path*",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
-        { "key": "Expires", "value": "Tue, 31 Dec 2030 23:59:59 GMT" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
       ]
     }
   ],
   "redirects": [
     {
+      "source": "/strategies/distressed-assets/",
+      "destination": "https://www.landbasedstrategies.com/track-record/blinka-road/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/distressed-assets",
+      "destination": "https://www.landbasedstrategies.com/track-record/blinka-road/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/distressed-assets/index.html",
+      "destination": "https://www.landbasedstrategies.com/track-record/blinka-road/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/subdivides/",
+      "destination": "https://www.landbasedstrategies.com/track-record/blinka-road/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/subdivides",
+      "destination": "https://www.landbasedstrategies.com/track-record/blinka-road/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/subdivides/index.html",
+      "destination": "https://www.landbasedstrategies.com/track-record/blinka-road/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/probate-heirship/",
+      "destination": "https://www.landbasedstrategies.com/track-record/wimberley/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/probate-heirship",
+      "destination": "https://www.landbasedstrategies.com/track-record/wimberley/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/probate-heirship/index.html",
+      "destination": "https://www.landbasedstrategies.com/track-record/wimberley/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/assemblage/",
+      "destination": "https://www.landbasedstrategies.com/track-record/hunt-county/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/assemblage",
+      "destination": "https://www.landbasedstrategies.com/track-record/hunt-county/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/assemblage/index.html",
+      "destination": "https://www.landbasedstrategies.com/track-record/hunt-county/",
+      "permanent": true
+    },
+    {
+      "source": "/insights/distressed-assets/",
+      "destination": "https://www.landbasedstrategies.com/track-record/blinka-road/",
+      "permanent": true
+    },
+    {
+      "source": "/insights/distressed-assets",
+      "destination": "https://www.landbasedstrategies.com/track-record/blinka-road/",
+      "permanent": true
+    },
+    {
+      "source": "/insights/distressed-assets/index.html",
+      "destination": "https://www.landbasedstrategies.com/track-record/blinka-road/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/retail/",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/retail",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/retail/index.html",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/retail/value-add/",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/retail/value-add",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/retail/value-add/index.html",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/retail/ground-up/",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/retail/ground-up",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/retail/ground-up/index.html",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/industrial/",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/industrial",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/industrial/index.html",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/industrial/value-add/",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/industrial/value-add",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/industrial/value-add/index.html",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/industrial/ground-up/",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/industrial/ground-up",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/industrial/ground-up/index.html",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/commercial-repositioning/",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/commercial-repositioning",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/commercial-repositioning/index.html",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/mixed-use/",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/mixed-use",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/mixed-use/index.html",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/insights/",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/insights",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/insights/index.html",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/insights/value-add-retail/",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/insights/value-add-retail",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/insights/value-add-retail/index.html",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/insights/industrial-infrastructure/",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/insights/industrial-infrastructure",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/insights/industrial-infrastructure/index.html",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/ground-up-retail/",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/ground-up-retail",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/ground-up-retail/index.html",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/blinka/",
+      "destination": "https://www.landbasedstrategies.com/track-record/blinka-road/",
+      "permanent": true
+    },
+    {
       "source": "/blinka",
-      "destination": "/",
+      "destination": "https://www.landbasedstrategies.com/track-record/blinka-road/",
       "permanent": true
     },
     {
-      "source": "/blog",
-      "destination": "https://www.landbasedstrategies.com/insights/",
+      "source": "/blinka/index.html",
+      "destination": "https://www.landbasedstrategies.com/track-record/blinka-road/",
       "permanent": true
     },
     {
-      "source": "/blog",
-      "has": [
-        { "type": "query", "key": "blog", "value": "y" }
-      ],
-      "destination": "https://www.landbasedstrategies.com/insights/",
+      "source": "/10506-pavonia-dr/",
+      "destination": "https://www.landbasedstrategies.com/track-record/pavonia/",
       "permanent": true
     },
     {
-      "source": "/blog/f/:path*",
-      "destination": "https://www.landbasedstrategies.com/insights/",
+      "source": "/10506-pavonia-dr",
+      "destination": "https://www.landbasedstrategies.com/track-record/pavonia/",
       "permanent": true
     },
     {
-      "source": "/:slug(398-swallow-st|10506-pavonia-dr|10506-pavonia-dr-1|307-lakeview-dr|0-kaupa-ct|0-johnson-dr|1094-lakeside|sold)",
-      "destination": "https://www.landbasedstrategies.com/track-record/",
+      "source": "/10506-pavonia-dr/index.html",
+      "destination": "https://www.landbasedstrategies.com/track-record/pavonia/",
+      "permanent": true
+    },
+    {
+      "source": "/10506-pavonia-dr-1/",
+      "destination": "https://www.landbasedstrategies.com/track-record/pavonia/",
+      "permanent": true
+    },
+    {
+      "source": "/10506-pavonia-dr-1",
+      "destination": "https://www.landbasedstrategies.com/track-record/pavonia/",
+      "permanent": true
+    },
+    {
+      "source": "/10506-pavonia-dr-1/index.html",
+      "destination": "https://www.landbasedstrategies.com/track-record/pavonia/",
+      "permanent": true
+    },
+    {
+      "source": "/1094-lakeside/",
+      "destination": "https://www.landbasedstrategies.com/track-record/wimberley/",
+      "permanent": true
+    },
+    {
+      "source": "/1094-lakeside",
+      "destination": "https://www.landbasedstrategies.com/track-record/wimberley/",
+      "permanent": true
+    },
+    {
+      "source": "/1094-lakeside/index.html",
+      "destination": "https://www.landbasedstrategies.com/track-record/wimberley/",
+      "permanent": true
+    },
+    {
+      "source": "/lease-arbitrage-calc/",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
       "permanent": true
     },
     {
@@ -50,21 +348,131 @@
       "permanent": true
     },
     {
+      "source": "/index.html",
+      "destination": "https://www.landbasedstrategies.com/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/strategies/index.html",
+      "destination": "https://www.landbasedstrategies.com/strategies/",
+      "permanent": true
+    },
+    {
+      "source": "/track-record",
+      "destination": "https://www.landbasedstrategies.com/track-record/",
+      "permanent": true
+    },
+    {
+      "source": "/track-record/index.html",
+      "destination": "https://www.landbasedstrategies.com/track-record/",
+      "permanent": true
+    },
+    {
+      "source": "/deal-studio",
+      "destination": "https://www.landbasedstrategies.com/deal-studio/",
+      "permanent": true
+    },
+    {
+      "source": "/deal-studio/index.html",
+      "destination": "https://www.landbasedstrategies.com/deal-studio/",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "https://www.landbasedstrategies.com/about/",
+      "permanent": true
+    },
+    {
+      "source": "/about/index.html",
+      "destination": "https://www.landbasedstrategies.com/about/",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "https://www.landbasedstrategies.com/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/contact/index.html",
+      "destination": "https://www.landbasedstrategies.com/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/track-record/blinka-road",
+      "destination": "https://www.landbasedstrategies.com/track-record/blinka-road/",
+      "permanent": true
+    },
+    {
+      "source": "/track-record/blinka-road/index.html",
+      "destination": "https://www.landbasedstrategies.com/track-record/blinka-road/",
+      "permanent": true
+    },
+    {
+      "source": "/track-record/wimberley",
+      "destination": "https://www.landbasedstrategies.com/track-record/wimberley/",
+      "permanent": true
+    },
+    {
+      "source": "/track-record/wimberley/index.html",
+      "destination": "https://www.landbasedstrategies.com/track-record/wimberley/",
+      "permanent": true
+    },
+    {
+      "source": "/track-record/hunt-county",
+      "destination": "https://www.landbasedstrategies.com/track-record/hunt-county/",
+      "permanent": true
+    },
+    {
+      "source": "/track-record/hunt-county/index.html",
+      "destination": "https://www.landbasedstrategies.com/track-record/hunt-county/",
+      "permanent": true
+    },
+    {
+      "source": "/track-record/pavonia",
+      "destination": "https://www.landbasedstrategies.com/track-record/pavonia/",
+      "permanent": true
+    },
+    {
+      "source": "/track-record/pavonia/index.html",
+      "destination": "https://www.landbasedstrategies.com/track-record/pavonia/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "landbasedstrategies.com"
+        }
+      ],
+      "destination": "https://www.landbasedstrategies.com/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*/",
+      "has": [
+        {
+          "type": "host",
+          "value": "landbasedstrategies.com"
+        }
+      ],
+      "destination": "https://www.landbasedstrategies.com/:path*/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
-        { "type": "host", "value": "landbasedstrategies.com" }
+        {
+          "type": "host",
+          "value": "landbasedstrategies.com"
+        }
       ],
       "destination": "https://www.landbasedstrategies.com/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/index.html",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/:path*/index.html",
-      "destination": "/:path*/",
       "permanent": true
     }
   ]

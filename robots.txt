@@ -1,9 +1,4 @@
 User-agent: *
-# Block only the heavy media that doesn't affect rendering
-Disallow: /assets/media/
-
-# Allow everything else (CSS, JS, icons, logos)
 Allow: /
 
-# Sitemap
 Sitemap: https://www.landbasedstrategies.com/sitemap.xml

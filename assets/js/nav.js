@@ -1,60 +1,13 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const navContainer = document.getElementById("nav");
-  if (!navContainer) return;
-
-  fetch("/partials/nav.html")
-    .then(response => response.text())
-    .then(html => {
-      navContainer.innerHTML = html;
-
-      const current = window.location.pathname;
-
-      // Define parent sections that should highlight on subtree
-      const sections = ["/strategies/", "/insights/"];
-
-      navContainer.querySelectorAll("a").forEach(a => {
-        const href = a.getAttribute("href");
-
-        // Exact page match
-        if (href === current) {
-          a.setAttribute("aria-current", "page");
-        }
-
-        // Section match (e.g. /strategies/retail/ -> highlight /strategies/)
-        sections.forEach(section => {
-          if (current.startsWith(section) && href === section) {
-            a.setAttribute("aria-current", "page");
-          }
-        });
-      });
-
-      // ===== Mobile Nav Behavior =====
-      const nav = navContainer.querySelector(".nav");
-      const navToggle = navContainer.querySelector(".nav-toggle");
-      const backdrop = document.querySelector(".nav-backdrop"); // lives outside navContainer
-
-      if (nav && navToggle && backdrop) {
-        // Toggle drawer open/close
-        navToggle.addEventListener("click", () => {
-          nav.classList.toggle("open");
-          backdrop.classList.toggle("open");
-        });
-
-        // Close when clicking backdrop
-        backdrop.addEventListener("click", () => {
-          nav.classList.remove("open");
-          backdrop.classList.remove("open");
-        });
-      }
-
-      // ===== Submenu toggles (caret buttons only) =====
-navContainer.querySelectorAll(".caret-toggle").forEach(btn => {
-  btn.addEventListener("click", e => {
-    e.preventDefault();
-    btn.closest(".nav-item").classList.toggle("open");
-  });
-});
-
-    })
-    .catch(err => console.error("Error loading nav:", err));
-});
+(() => {
+  const nav = document.getElementById('site-nav');
+  const button = document.querySelector('.nav-toggle');
+  if (!nav || !button) return;
+  const mobile = matchMedia('(max-width: 1100px)');
+  const close = () => { nav.classList.remove('is-open'); button.setAttribute('aria-expanded', 'false'); };
+  button.addEventListener('click', () => { const open = button.getAttribute('aria-expanded') !== 'true'; nav.classList.toggle('is-open', open); button.setAttribute('aria-expanded', String(open)); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') { close(); button.focus(); } });
+  document.addEventListener('click', e => { if (!nav.contains(e.target) && !button.contains(e.target)) close(); });
+  nav.addEventListener('click', e => { if(e.target.closest('a')) close(); });
+  mobile.addEventListener('change', close);
+  for (const a of nav.querySelectorAll('a')) { const url = new URL(a.href); if (location.pathname === url.pathname) a.setAttribute('aria-current', 'page'); else if (url.pathname === '/track-record/' && location.pathname.startsWith(url.pathname)) a.setAttribute('aria-current', 'location'); }
+})();
